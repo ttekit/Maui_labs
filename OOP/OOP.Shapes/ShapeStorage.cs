@@ -54,6 +54,18 @@ public sealed class ShapeStorage
         _capacityWarningSent = false;
     }
 
+    public void RemoveAt(int index)
+    {
+        if (index < 0 || index >= _count)
+            return;
+
+        for (int i = index; i < _count - 1; i++)
+            _shapes[i] = _shapes[i + 1];
+
+        _shapes[_count - 1] = null;
+        _count--;
+    }
+
     public IEnumerable<Shape> EnumerateShapes()
     {
         for (int i = 0; i < _count; i++)

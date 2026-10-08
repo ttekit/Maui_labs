@@ -8,27 +8,28 @@ public class EllipseShape : Shape
 
     public override string DisplayName => "Еліпс";
 
-    public override void Show(ICanvas canvas, EditorSettings settings)
+    public override void Show(ICanvas canvas, EditorSettings settings, bool isSelected = false)
     {
         var rect = NormalizeRect();
+        Color strokeColor = GetStrokeColor(isSelected);
         switch (settings.EllipseDisplay)
         {
             case EllipseDisplayStyle.WhiteFill:
                 canvas.FillColor = Colors.White;
                 canvas.FillEllipse(rect);
-                canvas.StrokeColor = Colors.Black;
+                canvas.StrokeColor = strokeColor;
                 canvas.StrokeSize = 2;
                 canvas.DrawEllipse(rect);
                 break;
             case EllipseDisplayStyle.ColoredFill:
                 canvas.FillColor = settings.EllipseFillColor;
                 canvas.FillEllipse(rect);
-                canvas.StrokeColor = Colors.Black;
+                canvas.StrokeColor = strokeColor;
                 canvas.StrokeSize = 2;
                 canvas.DrawEllipse(rect);
                 break;
             default:
-                canvas.StrokeColor = Colors.Black;
+                canvas.StrokeColor = strokeColor;
                 canvas.StrokeSize = 2;
                 canvas.DrawEllipse(rect);
                 break;

@@ -7,7 +7,7 @@ public sealed class MyTable
 
     public event Action<IReadOnlyList<TableRow>>? RowsChanged;
 
-    public event Action<TableRow>? RowSelected;
+    public event Action<int>? RowSelected;
 
     public IReadOnlyList<TableRow> Rows => _rows;
 
@@ -23,11 +23,20 @@ public sealed class MyTable
         RowsChanged?.Invoke(_rows);
     }
 
+    public void RemoveAt(int index)
+    {
+        if (index < 0 || index >= _rows.Count)
+            return;
+
+        _rows.RemoveAt(index);
+        RowsChanged?.Invoke(_rows);
+    }
+
     public void SelectRow(int index)
     {
         if (index < 0 || index >= _rows.Count)
             return;
 
-        RowSelected?.Invoke(_rows[index]);
+        RowSelected?.Invoke(index);
     }
 }

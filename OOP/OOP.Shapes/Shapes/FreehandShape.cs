@@ -27,7 +27,7 @@ public sealed class FreehandShape : Shape
         return true;
     }
 
-    public override void Show(ICanvas canvas, EditorSettings settings)
+    public override void Show(ICanvas canvas, EditorSettings settings, bool isSelected = false)
     {
         if (_points.Count == 0)
             return;
@@ -35,12 +35,12 @@ public sealed class FreehandShape : Shape
         if (_points.Count == 1)
         {
             (float x, float y) = _points[0];
-            canvas.FillColor = Colors.Black;
+            canvas.FillColor = GetFillColor(isSelected);
             canvas.FillCircle(x, y, 3f);
             return;
         }
 
-        canvas.StrokeColor = Colors.Black;
+        canvas.StrokeColor = GetStrokeColor(isSelected);
         canvas.StrokeSize = 2;
         for (int i = 1; i < _points.Count; i++)
         {

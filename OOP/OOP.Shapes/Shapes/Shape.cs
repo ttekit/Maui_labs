@@ -24,5 +24,9 @@ public abstract class Shape
 
     public abstract string DisplayName { get; }
 
-    public abstract void Show(ICanvas canvas, EditorSettings settings);
+    public abstract void Show(ICanvas canvas, EditorSettings settings, bool isSelected = false);
+
+    protected static Color GetStrokeColor(bool isSelected) => isSelected ? Colors.Red : Colors.Black;
+
+    protected static Color GetFillColor(bool isSelected) => isSelected ? Colors.Red : Colors.Black;
 }

@@ -51,6 +51,11 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
                 <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center" Spacing="12" Margin="0,8,0,0">
+                    <Button x:Name="BtnDelete"
+                            Text="Видалити"
+                            WidthRequest="120"
+                            IsEnabled="False"
+                            Clicked="OnDeleteClicked" />
                     <Button Text="Закрити"
                             WidthRequest="120"
                             Clicked="OnCloseClicked" />

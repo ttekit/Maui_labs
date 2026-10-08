@@ -8,27 +8,28 @@ public class RectShape : Shape
 
     public override string DisplayName => "Прямокутник";
 
-    public override void Show(ICanvas canvas, EditorSettings settings)
+    public override void Show(ICanvas canvas, EditorSettings settings, bool isSelected = false)
     {
         var rect = NormalizeRect();
+        Color strokeColor = GetStrokeColor(isSelected);
         switch (settings.RectDisplay)
         {
             case RectDisplayStyle.WhiteFill:
                 canvas.FillColor = Colors.White;
                 canvas.FillRectangle(rect);
-                canvas.StrokeColor = Colors.Black;
+                canvas.StrokeColor = strokeColor;
                 canvas.StrokeSize = 2;
                 canvas.DrawRectangle(rect);
                 break;
             case RectDisplayStyle.ColoredFill:
                 canvas.FillColor = settings.RectFillColor;
                 canvas.FillRectangle(rect);
-                canvas.StrokeColor = Colors.Black;
+                canvas.StrokeColor = strokeColor;
                 canvas.StrokeSize = 2;
                 canvas.DrawRectangle(rect);
                 break;
             default:
-                canvas.StrokeColor = Colors.Black;
+                canvas.StrokeColor = strokeColor;
                 canvas.StrokeSize = 2;
                 canvas.DrawRectangle(rect);
                 break;

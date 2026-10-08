@@ -31,6 +31,8 @@ public class ShapeObjectsEditor
 
     public ShapeKind CurrentKind => _currentKind;
 
+    public int? SelectedShapeIndex { get; set; }
+
     public bool UseMenuModeIndicator => _settings.UseMenuModeIndicator;
 
     public string CurrentModeTitle => _currentKind switch
@@ -88,7 +90,7 @@ public class ShapeObjectsEditor
     {
         canvas.FillColor = Colors.White;
         canvas.FillRectangle(dirtyRect);
-        _activeEditor?.DrawShapes(canvas);
+        _activeEditor?.DrawShapes(canvas, SelectedShapeIndex);
         _activeEditor?.DrawRubberBand(canvas);
     }
 

@@ -10,10 +10,10 @@ public sealed class CubeShape : LineShape
 
     public override string DisplayName => "Каркас куба";
 
-    public override void Show(ICanvas canvas, EditorSettings settings)
+    public override void Show(ICanvas canvas, EditorSettings settings, bool isSelected = false)
     {
         var (x1, y1, x2, y2) = GetCoordinates();
         var (left, top, right, bottom) = CubeWireframe.NormalizeFace((float)x1, (float)y1, (float)x2, (float)y2);
-        CubeWireframe.Draw(canvas, left, top, right, bottom, Colors.Black);
+        CubeWireframe.Draw(canvas, left, top, right, bottom, GetStrokeColor(isSelected));
     }
 }

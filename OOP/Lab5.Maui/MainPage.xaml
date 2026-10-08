@@ -7,7 +7,8 @@
     <ContentPage.MenuBarItems>
         <MenuBarItem Text="Файл">
             <MenuFlyoutItem Text="Завантажити з файлу" Clicked="OnLoadClicked" />
-            <MenuFlyoutItem Text="Очистити файл" Clicked="OnClearClicked" />
+            <MenuFlyoutItem Text="Зберегти" Clicked="OnSaveClicked" />
+            <MenuFlyoutItem Text="Очистити" Clicked="OnClearClicked" />
             <MenuFlyoutItem Text="Вихід" Clicked="OnExitClicked" />
         </MenuBarItem>
         <MenuBarItem Text="Таблиця">
@@ -32,10 +33,13 @@
                         Padding="12,4" SemanticProperties.Description="Показати таблицю об'єктів" />
                 <Button x:Name="BtnLoad" Text="Завантажити" Clicked="OnLoadClicked"
                         FontSize="14" TextColor="Black" BackgroundColor="White" BorderColor="#CCCCCC" BorderWidth="1"
-                        Padding="12,4" SemanticProperties.Description="Завантажити з shapes.txt" />
+                        Padding="12,4" SemanticProperties.Description="Завантажити з файлів .coolPaint" />
+                <Button x:Name="BtnSave" Text="Зберегти" Clicked="OnSaveClicked"
+                        FontSize="14" TextColor="Black" BackgroundColor="White" BorderColor="#CCCCCC" BorderWidth="1"
+                        Padding="12,4" SemanticProperties.Description="Зберегти у файл .coolPaint" />
                 <Button x:Name="BtnClear" Text="Очистити" Clicked="OnClearClicked"
                         FontSize="14" TextColor="Black" BackgroundColor="White" BorderColor="#CCCCCC" BorderWidth="1"
-                        Padding="12,4" SemanticProperties.Description="Очистити canvas, таблицю та shapes.txt" />
+                        Padding="12,4" SemanticProperties.Description="Очистити canvas та таблицю" />
                 <BoxView WidthRequest="1" HeightRequest="32" Color="#CCCCCC" VerticalOptions="Center" />
                 <Button Text="●" Clicked="OnPointClicked" WidthRequest="44"
                         FontSize="18" TextColor="Black" BackgroundColor="White" BorderColor="#CCCCCC" BorderWidth="1"
@@ -61,7 +65,7 @@
                Margin="8,0,8,4"
                FontSize="12"
                TextColor="Gray"
-               Text="Таблиця — модальне вікно з координатами фігур. Файл shapes.txt у папці даних застосунку." />
+               Text="Таблиця — модальне вікно з координатами фігур. Завантаження та збереження у файли .coolPaint." />
         <GraphicsView x:Name="CanvasView"
                       Grid.Row="2"
                       BackgroundColor="White"

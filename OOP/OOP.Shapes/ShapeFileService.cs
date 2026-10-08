@@ -5,6 +5,8 @@ namespace OOP.Shapes;
 
 public static class ShapeFileService
 {
+    public const string FileExtension = "coolPaint";
+
     private const char FieldSeparator = '\t';
 
     public static Task ClearAsync(string filePath)
@@ -17,9 +19,21 @@ public static class ShapeFileService
 
     public static async Task AppendShapeAsync(string filePath, Shape shape)
     {
+        await File.AppendAllTextAsync(filePath, FormatShapeLine(shape), CancellationToken.None).ConfigureAwait(false);
+    }
+
+    public static async Task SaveAllAsync(string filePath, IEnumerable<Shape> shapes)
+    {
+        await File.WriteAllTextAsync(filePath, BuildFileContent(shapes), CancellationToken.None).ConfigureAwait(false);
+    }
+
+    public static string BuildFileContent(IEnumerable<Shape> shapes) =>
+        string.Concat(shapes.Select(FormatShapeLine));
+
+    private static string FormatShapeLine(Shape shape)
+    {
         var (x1, y1, x2, y2) = shape.GetCoordinates();
-        string line = $"{shape.DisplayName}{FieldSeparator}{x1}{FieldSeparator}{y1}{FieldSeparator}{x2}{FieldSeparator}{y2}{Environment.NewLine}";
-        await File.AppendAllTextAsync(filePath, line).ConfigureAwait(false);
+        return $"{shape.DisplayName}{FieldSeparator}{x1}{FieldSeparator}{y1}{FieldSeparator}{x2}{FieldSeparator}{y2}{Environment.NewLine}";
     }
 
     public static async Task<IReadOnlyList<ShapeRecord>> LoadAsync(string filePath)

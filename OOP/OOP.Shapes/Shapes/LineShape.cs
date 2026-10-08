@@ -8,10 +8,10 @@ public class LineShape : Shape
 
     public override string DisplayName => "Лінія";
 
-    public override void Show(ICanvas canvas, EditorSettings settings)
+    public override void Show(ICanvas canvas, EditorSettings settings, bool isSelected = false)
     {
         var (x1, y1, x2, y2) = GetCoordinates();
-        canvas.StrokeColor = Colors.Black;
+        canvas.StrokeColor = GetStrokeColor(isSelected);
         canvas.StrokeSize = 2;
         canvas.DrawLine((float)x1, (float)y1, (float)x2, (float)y2);
     }

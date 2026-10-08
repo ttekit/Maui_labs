@@ -26,10 +26,15 @@ public abstract class ShapeEditor : Editor
 
     public abstract Shape CreateShape(long x1, long y1, long x2, long y2);
 
-    public void DrawShapes(ICanvas canvas)
+    public void DrawShapes(ICanvas canvas, int? selectedShapeIndex = null)
     {
-        foreach (Shape shape in Storage.EnumerateShapes())
-            shape.Show(canvas, Settings);
+        for (int i = 0; i < Storage.Count; i++)
+        {
+            if (Storage.Shapes[i] is not Shape shape)
+                continue;
+
+            shape.Show(canvas, Settings, selectedShapeIndex == i);
+        }
     }
 
     public virtual void DrawRubberBand(ICanvas canvas)

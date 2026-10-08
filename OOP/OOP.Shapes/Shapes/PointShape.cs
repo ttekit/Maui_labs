@@ -8,9 +8,9 @@ public sealed class PointShape : Shape
 
     public override string DisplayName => "Крапка";
 
-    public override void Show(ICanvas canvas, EditorSettings settings)
+    public override void Show(ICanvas canvas, EditorSettings settings, bool isSelected = false)
     {
-        canvas.FillColor = Colors.Black;
+        canvas.FillColor = GetFillColor(isSelected);
         canvas.FillCircle((float)GetCoordinates().X1, (float)GetCoordinates().Y1, 3f);
     }
 }
