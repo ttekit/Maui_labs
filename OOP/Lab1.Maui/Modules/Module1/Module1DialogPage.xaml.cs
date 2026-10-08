@@ -15,15 +15,6 @@ public sealed partial class Module1DialogPage : ContentPage
         InitializeComponent();
     }
 
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-        if (Environment.GetEnvironmentVariable("OOP_LAB1_DEMO") == "module1")
-        {
-            TextInputEntry.Text = "Приклад тексту для Lab1";
-        }
-    }
-
     internal Task<Module1DialogResult> WaitForCloseAsync()
     {
         return closeTaskSource.Task;

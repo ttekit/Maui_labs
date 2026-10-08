@@ -2,9 +2,7 @@ namespace Lab1.Modules.Module2;
 
 internal sealed record Module2DialogResult(bool IsConfirmed, string ValueText);
 
-/// <summary>
-/// Internal dialog implementation (analog of static DlgProc in module2.cpp).
-/// </summary>
+
 public sealed partial class Module2DialogPage : ContentPage
 {
     private readonly TaskCompletionSource<Module2DialogResult> closeTaskSource =
@@ -14,16 +12,6 @@ public sealed partial class Module2DialogPage : ContentPage
     {
         InitializeComponent();
         UpdateValueLabel((int)ValueSlider.Value);
-    }
-
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-        if (Environment.GetEnvironmentVariable("OOP_LAB1_DEMO") == "module2")
-        {
-            ValueSlider.Value = 75;
-            UpdateValueLabel(75);
-        }
     }
 
     internal Task<Module2DialogResult> WaitForCloseAsync()
