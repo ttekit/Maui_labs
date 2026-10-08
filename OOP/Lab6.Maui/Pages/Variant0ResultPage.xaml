@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="Lab6.Pages.Variant0ResultPage"
+            Title="Варіант 0">
+
+    <ContentPage Title="Точки">
+        <Grid RowDefinitions="Auto,Auto,*" Padding="16" RowSpacing="8">
+            <Label Grid.Row="0"
+                   Text="Згенеровані пари (x, y)"
+                   FontAttributes="Bold"
+                   FontSize="16" />
+            <Label x:Name="SummaryLabel" Grid.Row="1" />
+            <CollectionView x:Name="PointsView" Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Padding="4" Text="{Binding}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage>
+
+    <ContentPage Title="Графік">
+        <Grid RowDefinitions="Auto,*" Padding="8">
+            <Label x:Name="InfoLabel" Grid.Row="0" />
+            <GraphicsView x:Name="GraphView" Grid.Row="1" BackgroundColor="White" />
+        </Grid>
+    </ContentPage>
+
+</TabbedPage>

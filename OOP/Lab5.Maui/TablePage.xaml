@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab5.TablePage"
+             Title="Таблиця об'єктів"
+             BackgroundColor="Transparent">
+
+    <Grid Padding="24">
+        <Border BackgroundColor="White"
+                Stroke="#C8C8C8"
+                StrokeThickness="1"
+                WidthRequest="720"
+                HeightRequest="440"
+                MinimumWidthRequest="680"
+                MaximumWidthRequest="800"
+                MinimumHeightRequest="320"
+                MaximumHeightRequest="520"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Padding="20">
+            <Grid RowDefinitions="Auto,Auto,*,Auto" RowSpacing="10">
+                <Label Grid.Row="0"
+                       Text="Таблиця об'єктів"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+                <Grid Grid.Row="1" ColumnDefinitions="220,80,80,80,80" ColumnSpacing="8">
+                    <Label Text="Назва" FontAttributes="Bold" TextColor="Black" />
+                    <Label Grid.Column="1" Text="x1" FontAttributes="Bold" TextColor="Black" />
+                    <Label Grid.Column="2" Text="y1" FontAttributes="Bold" TextColor="Black" />
+                    <Label Grid.Column="3" Text="x2" FontAttributes="Bold" TextColor="Black" />
+                    <Label Grid.Column="4" Text="y2" FontAttributes="Bold" TextColor="Black" />
+                </Grid>
+                <CollectionView x:Name="TableView"
+                                Grid.Row="2"
+                                SelectionMode="Single"
+                                SelectionChanged="OnRowSelected">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="220,80,80,80,80" ColumnSpacing="8" Padding="0,4">
+                                <Label Text="{Binding Name}"
+                                       TextColor="Black"
+                                       LineBreakMode="TailTruncation"
+                                       MaxLines="1" />
+                                <Label Grid.Column="1" Text="{Binding X1}" TextColor="Black" />
+                                <Label Grid.Column="2" Text="{Binding Y1}" TextColor="Black" />
+                                <Label Grid.Column="3" Text="{Binding X2}" TextColor="Black" />
+                                <Label Grid.Column="4" Text="{Binding Y2}" TextColor="Black" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <HorizontalStackLayout Grid.Row="3" HorizontalOptions="Center" Spacing="12" Margin="0,8,0,0">
+                    <Button Text="Закрити"
+                            WidthRequest="120"
+                            Clicked="OnCloseClicked" />
+                </HorizontalStackLayout>
+            </Grid>
+        </Border>
+    </Grid>
+
+</ContentPage>

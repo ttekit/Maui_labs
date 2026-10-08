@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab6Object2.MainPage"
+             Title="Object2 — Генератор точок">
+
+    <ScrollView Padding="16">
+        <VerticalStackLayout Spacing="8">
+            <Label Text="Object2: згенеровані пари (x, y)" FontAttributes="Bold" FontSize="16" />
+            <Label x:Name="SummaryLabel" />
+            <CollectionView x:Name="PointsView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Padding="4" Text="{Binding}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

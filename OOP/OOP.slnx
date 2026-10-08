@@ -1,0 +1,31 @@
+<Solution>
+  <Folder Name="/Lab1/" />
+  <Folder Name="/Lab1/Lab1.Maui/">
+    <Project Path="Lab1/Lab1.Maui/Lab1.csproj" />
+  </Folder>
+  <Folder Name="/Lab2.Maui/">
+    <Project Path="Lab2.Maui/Lab2.csproj" />
+  </Folder>
+  <Folder Name="/Lab3.Maui/">
+    <Project Path="Lab3.Maui/Lab3.csproj" />
+  </Folder>
+  <Folder Name="/Lab4.Maui/">
+    <Project Path="Lab4.Maui/Lab4.csproj" />
+  </Folder>
+  <Folder Name="/Lab5.Maui/">
+    <Project Path="Lab5.Maui/Lab5.csproj" />
+  </Folder>
+  <Folder Name="/Lab6.Maui/">
+    <Project Path="Lab6.Maui/Lab6.csproj" />
+  </Folder>
+  <Folder Name="/Lab6.Object2/">
+    <Project Path="Lab6.Object2.Console/Lab6Object2.Console.csproj" />
+    <Project Path="Lab6.Object2.Maui/Lab6Object2.csproj" />
+  </Folder>
+  <Folder Name="/Lab6.Object3.Maui/">
+    <Project Path="Lab6.Object3.Maui/Lab6Object3.csproj" />
+  </Folder>
+  <Project Path="OOP.Lab6.Core/OOP.Lab6.Core.csproj" />
+  <Project Path="OOP.MyTable/OOP.MyTable.csproj" />
+  <Project Path="OOP.Shapes/OOP.Shapes.csproj" />
+</Solution>

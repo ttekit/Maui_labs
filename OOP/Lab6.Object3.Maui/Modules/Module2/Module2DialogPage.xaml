@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1.Modules.Module2.Module2DialogPage"
+             Title="Виберіть число"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20" Spacing="16">
+        <HorizontalStackLayout Spacing="8">
+            <Label Text="Значення:" VerticalOptions="Center" />
+            <Label x:Name="ValueLabel"
+                   Text="50"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <Slider x:Name="ValueSlider"
+                Minimum="1"
+                Maximum="100"
+                Value="50"
+                ValueChanged="OnSliderValueChanged" />
+
+        <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+            <Button Text="Так"
+                    WidthRequest="100"
+                    Clicked="OnOkClicked" />
+            <Button Text="Відміна"
+                    WidthRequest="100"
+                    Clicked="OnCancelClicked" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab2.MainPage"
+             Title="Lab2 — Редактор об'єктів">
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Файл">
+            <MenuFlyoutItem Text="Вихід" Clicked="OnExitClicked" />
+        </MenuBarItem>
+        <MenuBarItem Text="Об'єкти">
+            <MenuFlyoutItem x:Name="MenuPoint" Text="Крапка" Clicked="OnPointClicked" />
+            <MenuFlyoutItem x:Name="MenuFreehand" Text="Малювання" Clicked="OnFreehandClicked" />
+            <MenuFlyoutItem x:Name="MenuLine" Text="Лінія" Clicked="OnLineClicked" />
+            <MenuFlyoutItem x:Name="MenuRect" Text="Прямокутник" Clicked="OnRectClicked" />
+            <MenuFlyoutItem x:Name="MenuEllipse" Text="Еліпс" Clicked="OnEllipseClicked" />
+        </MenuBarItem>
+        <MenuBarItem Text="Довідка">
+            <MenuFlyoutItem Text="Про програму" Clicked="OnAboutClicked" />
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    <Grid RowDefinitions="Auto,Auto,*">
+        <ScrollView Grid.Row="0" Orientation="Horizontal" Padding="8,4">
+            <HorizontalStackLayout Spacing="4">
+                <Button x:Name="BtnPoint" Text="●" Clicked="OnPointClicked" WidthRequest="48"
+                        FontSize="18" TextColor="Black" BackgroundColor="White" BorderColor="#CCCCCC" BorderWidth="1"
+                        SemanticProperties.Description="Крапка" />
+                <Button x:Name="BtnFreehand" Text="✎" Clicked="OnFreehandClicked" WidthRequest="48"
+                        FontSize="18" TextColor="Black" BackgroundColor="White" BorderColor="#CCCCCC" BorderWidth="1"
+                        SemanticProperties.Description="Малювання" />
+                <Button x:Name="BtnLine" Text="╱" Clicked="OnLineClicked" WidthRequest="48"
+                        FontSize="18" TextColor="Black" BackgroundColor="White" BorderColor="#CCCCCC" BorderWidth="1"
+                        SemanticProperties.Description="Лінія" />
+                <Button x:Name="BtnRect" Text="▭" Clicked="OnRectClicked" WidthRequest="48"
+                        FontSize="18" TextColor="Black" BackgroundColor="White" BorderColor="#CCCCCC" BorderWidth="1"
+                        SemanticProperties.Description="Прямокутник" />
+                <Button x:Name="BtnEllipse" Text="○" Clicked="OnEllipseClicked" WidthRequest="48"
+                        FontSize="18" TextColor="Black" BackgroundColor="White" BorderColor="#CCCCCC" BorderWidth="1"
+                        SemanticProperties.Description="Еліпс" />
+            </HorizontalStackLayout>
+        </ScrollView>
+        <Label x:Name="ModeLabel"
+               Grid.Row="1"
+               Margin="8,0,8,4"
+               FontSize="12"
+               TextColor="Black"
+               Text="Оберіть об'єкт для малювання" />
+        <GraphicsView x:Name="CanvasView"
+                      Grid.Row="2"
+                      BackgroundColor="White"
+                      StartInteraction="OnStartInteraction"
+                      DragInteraction="OnDragInteraction"
+                      EndInteraction="OnEndInteraction" />
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1.Modules.Module2.Module2DialogPage"
+             Title="Виберіть число"
+             BackgroundColor="Transparent">
+
+    <Grid Padding="40">
+        <Border BackgroundColor="White"
+                Stroke="#C8C8C8"
+                StrokeThickness="1"
+                MaximumWidthRequest="420"
+                MaximumHeightRequest="280"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Padding="20">
+            <VerticalStackLayout Spacing="16">
+                <Label Text="Виберіть число"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+                <HorizontalStackLayout Spacing="8">
+                    <Label Text="Значення:" VerticalOptions="Center" TextColor="Black" />
+                    <Label x:Name="ValueLabel"
+                           Text="50"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           TextColor="Black" />
+                </HorizontalStackLayout>
+
+                <Slider x:Name="ValueSlider"
+                        Minimum="1"
+                        Maximum="100"
+                        Value="50"
+                        ValueChanged="OnSliderValueChanged" />
+
+                <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+                    <Button Text="Так"
+                            WidthRequest="100"
+                            Clicked="OnOkClicked" />
+                    <Button Text="Відміна"
+                            WidthRequest="100"
+                            Clicked="OnCancelClicked" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+
+</ContentPage>

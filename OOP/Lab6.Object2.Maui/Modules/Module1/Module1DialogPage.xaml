@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab1.Modules.Module1.Module1DialogPage"
+             Title="Введіть текст"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="20" Spacing="16">
+        <Label Text="Текст:" />
+        <Entry x:Name="TextInputEntry"
+               Placeholder="Введіть текст"
+               HorizontalOptions="Fill" />
+        <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+            <Button Text="Так"
+                    WidthRequest="100"
+                    Clicked="OnOkClicked" />
+            <Button Text="Відміна"
+                    WidthRequest="100"
+                    Clicked="OnCancelClicked" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>
